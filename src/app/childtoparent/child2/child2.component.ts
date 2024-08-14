@@ -13,6 +13,6 @@ export class ChildComponent2 implements OnInit {
 
   ngOnInit(): void {
     // 'ngOnInit' Angular tərəfindən avtomatik olaraq çağırılan bir metoddur. Komponentin inicializasiyası üçün istifadə olunur.
-    this.dataEvent.emit({ message: 'Salam Qaqaaa' }); // 'dataEvent' hadisəsini tetikləyir və 'message' obyekti ilə məlumat göndərir.
+    // this.dataEvent.emit({ message: 'Salam Qaqaaa' }); // 'dataEvent' hadisəsini tetikləyir və 'message' obyekti ilə məlumat göndərir.
   }
 }
