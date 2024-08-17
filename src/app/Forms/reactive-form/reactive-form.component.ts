@@ -1,32 +1,56 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
   standalone: true,
   imports: [ReactiveFormsModule],
   template: `
+    <!-- Form qrupunu və göndərmə eventini birləşdirir -->
     <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
-      <input type="text " placeholder="Name" formControlName="name" /><br />
+      <!-- Ad inputu üçün form kontrolu -->
+      <input type="text" placeholder="Name" formControlName="name" /><br />
+
+      <!-- Soyad inputu üçün form kontrolu -->
       <input
-        type="text "
+        type="text"
         placeholder="Surname"
         formControlName="surname"
       /><br />
-      <input type="text " placeholder="Email" formControlName="email" /><br />
-      <input type="text " placeholder="Tel" formControlName="tel" /><br />
+
+      <!-- Email inputu üçün form kontrolu -->
+      <input type="text" placeholder="Email" formControlName="email" /><br />
+
+      <!-- Telefon nömrəsi inputu üçün form kontrolu -->
+      <input type="text" placeholder="Tel" formControlName="tel" /><br />
+
+      <!-- "address" adlı alt qrup -->
       <div formGroupName="address">
+        <!-- Ölkə inputu üçün form kontrolu -->
         <input
           type="text"
-          placeholder="County"
+          placeholder="Country"
           formControlName="country"
         /><br />
+
+        <!-- Şəhər inputu üçün form kontrolu -->
         <input type="text" placeholder="City" formControlName="city" /><br />
+
+        <!-- Ünvan inputu üçün form kontrolu -->
         <input type="text" placeholder="Address" formControlName="address" />
       </div>
+
+      <!-- Formu göndərmək üçün düymə -->
       <button>Send</button>
     </form>
-    {{frm.valid}}
+
+    <!-- Formun etibarlı olub olmadığını göstərir (true/false) -->
+    {{ frm.valid }}
   `,
 })
 export class ReactiveFormComponent {
@@ -34,7 +58,7 @@ export class ReactiveFormComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.frm = formBuilder.group({
-      name: ['', Validators.required], 
+      name: ['', Validators.required],
       surname: [''],
       email: [''],
       tel: [''],
@@ -45,6 +69,7 @@ export class ReactiveFormComponent {
       }),
     });
   }
+
   onSubmit(data) {
     console.log(data);
   }
