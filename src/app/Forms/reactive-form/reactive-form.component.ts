@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { markAsUntransferable } from 'node:worker_threads';
 
 @Component({
   selector: 'app-reactive-form',
@@ -48,9 +49,8 @@ import {
       <!-- Formu göndərmək üçün düymə -->
       <button>Send</button>
     </form>
-
     <!-- Formun etibarlı olub olmadığını göstərir (true/false) -->
-    {{ frm.valid }}
+    {{ null }}
   `,
 })
 export class ReactiveFormComponent {
@@ -69,8 +69,11 @@ export class ReactiveFormComponent {
       }),
     });
   }
-
   onSubmit(data) {
     console.log(data);
+     this.frm.get('name').markAllAsTouched();
+     console.log(this.frm.controls['name'].markAllAsTouched);
+     
   }
+  
 }
