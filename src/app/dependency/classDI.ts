@@ -1,4 +1,7 @@
+import { Injectable } from "@angular/core";
+
 // src/app/dependency/classDI.ts
+ 
 export class ClassDI {
   getProducts(): Product[] {
     return [

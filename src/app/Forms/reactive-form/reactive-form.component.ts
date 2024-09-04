@@ -71,9 +71,7 @@ export class ReactiveFormComponent {
   }
   onSubmit(data) {
     console.log(data);
-     this.frm.get('name').markAllAsTouched();
-     console.log(this.frm.controls['name'].markAllAsTouched);
-     
+      
   }
   
 }

@@ -7,6 +7,8 @@ import { TemplateDrivenComponent } from "./Forms/template-driven/template-driven
 import { ReactiveFormComponent } from "./Forms/reactive-form/reactive-form.component";
 import { StatusmethodsComponent } from "./changingthestatus/statusmethods/statusmethods.component";
 import { ComponentforDItestComponent } from './dependency/componentfor-ditest/componentfor-ditest.component';
+import { AddUserComponent } from "./componentcommunicationwithServices/add-user/add-user.component";
+import { ListUserComponent } from "./componentcommunicationwithServices/list-user/list-user.component";
  
  
 @Component({
@@ -19,9 +21,11 @@ import { ComponentforDItestComponent } from './dependency/componentfor-ditest/co
     TemplateDrivenComponent,
     ReactiveFormComponent,
     StatusmethodsComponent,
-    ComponentforDItestComponent
-  ],
-  template: `<app-componentfor-ditest></app-componentfor-ditest> `,
+    ComponentforDItestComponent,
+    AddUserComponent,
+    ListUserComponent
+],
+  template: ` <app-add-user></app-add-user> <app-list-user></app-list-user> `,
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
